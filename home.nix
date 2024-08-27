@@ -83,7 +83,7 @@
       cfgview = "cfg $SHELL";
       cfgedit = "cfg \"sudo su\"";
 
-      "²" = "echo -n";
+      "²" = "true";
     };
 
     bashrcExtra = ''

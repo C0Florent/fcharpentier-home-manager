@@ -90,8 +90,6 @@
       source ${builtins.toPath ./bash/functions.sh}
       unmute
     '';
-
-    #sessionVariables = home.sessionVariables;
   };
 
   # Let Home Manager install and manage itself.

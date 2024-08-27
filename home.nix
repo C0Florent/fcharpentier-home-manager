@@ -68,11 +68,31 @@
   #  /etc/profiles/per-user/fcharpentier/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
-    FOO = "bar";
+    PS1 = ''\[\e[0;36m\][\[\e[1;32m\]bash\[\e[0;32m\]`put_shlvl`\[\e[37;1m\]/\[\e[1;36m\]\u@\h\[\e[37;1m\]:\[\e[1;34m\]\W\[\e[0;34m\]`__git_ps1 "(%s)"`\[\e[0;36m\]]\n\[\e[1;31m\]`put_nonzero_status`\[\e[1;33m\]\$\[\e[m\] '';
+
+    PS1_HOOKS = "play_PS1_sound";
+
+    BEEPFILE = "~/Sounds/beep.wav";
+    BOOPFILE = "~/Sounds/sound_error.wav";
   };
 
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+
+    shellAliases = {
+      cfgview = "cfg $SHELL";
+      cfgedit = "cfg \"sudo su\"";
+
+      "²" = "echo -n";
+    };
+
+    bashrcExtra = ''
+      source ${builtins.toPath ./bash/functions.sh}
+      unmute
+    '';
+
+    #sessionVariables = home.sessionVariables;
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

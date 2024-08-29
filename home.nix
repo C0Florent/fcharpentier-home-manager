@@ -18,6 +18,7 @@
   imports = [
     ./shell/bash.nix
     ./shell/starship.nix
+    ./alacritty.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your

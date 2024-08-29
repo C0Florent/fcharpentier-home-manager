@@ -1,5 +1,17 @@
 { lib, ... }:
 
+let 
+  style_str = { bg, fg }: "bg:${bg} fg:${fg}";
+  inv_style_str = { bg, fg }: "bg:${fg} fg:${bg}";
+
+  prompt_ok = "bright-green";
+  prompt_ko = { bg ="bright-red"; fg = "white"; };
+  directory = { bg = "blue"; fg = "bold bright-white"; };
+  directory_lock = { bg = directory.bg; fg = "bold bright-yellow"; };
+  username = { bg = "bright-white"; fg = "black"; };
+  username_root = { bg = username.bg; fg = "bold dimmed red"; };
+  shlvl = { bg = directory.bg; fg = "purple"; };
+in
 {
   programs.starship = {
     enable = true;
@@ -9,56 +21,52 @@
       add_newline = true;
 
       format = lib.concatStrings [
-         ''[\[](cyan)''
-         ''$shell''
-         ''$shlvl''
-         ''[/](bold white)''
-         ''$username''
-         ''[:](bold white)''
-         ''$directory''
-         ''([\(''
+        "[](${directory.bg})"
+        "[ ](${style_str directory})"
+        "$username"
+        "$directory"
+        "[](${directory.bg})"
 
-           ''$git_branch''
-           ''$git_state''
-         ''\)](blue))''
-         ''[\]](cyan)''
-         ''$line_break''
-         ''$status''
-         ''$character''
+        "$line_break"
+
+        "[](${directory.bg})"
+        "[ ](bg:${directory.bg})"
+        "$shlvl"
+        "[](fg:${directory.bg} bg:bright-green)"
+        "[     ](bg:bright-green)"
+        "[ ](fg:bright-green)"
       ];
 
-      shell = {
+     shlvl = {
         disabled = false;
-        format = "[$indicator]($style)";
-        style = "bold green";
-        bash_indicator = "bash";
-        tcsh_indicator = "tcsh";
-        fish_indicator = "fish";
-        unknown_indicator = "??sh";
-      };
-      shlvl = {
-        disabled = false;
+        repeat = true;
         threshold = 1;
-        format = ''[\($shlvl\)]($style)'';
-        style = "green";
+        symbol = "[](${inv_style_str shlvl})[](${style_str shlvl})";
+        format = "[$symbol]($style)";
+        style = style_str directory;
       };
       username = {
         show_always = true;
-        style_user = "bold cyan";
-        style_root = "bold purple";
-        format = "[$user]($style)";
+        style_user = style_str username;
+        style_root = style_str username_root;
+        format = lib.concatStrings [
+          "[](fg:${username.bg} bg:${directory.bg})"
+          "[ ( $user) ]($style)"
+          "[ ](fg:${username.bg} bg:${directory.bg})"
+        ];
+        aliases = { "fcharpentier" = ""; };
       };
       directory = {
         truncation_symbol = "…/";
         truncation_length = 2;
-        style = "bold blue";
-        read_only = "!";
-        read_only_style = "red";
-        format = "[$read_only]($read_only_style)[$path]($style)";
+        style = style_str directory;
+        read_only_style = style_str directory_lock;
+        read_only = " ";
+        format = "[ [$read_only]($read_only_style)$path]($style)";
       };
       git_branch = {
         style = "blue";
-        format = ''[$branch]($style)'';
+        format = "[$branch]($style)";
       };
       git_state = {
         style = "blue";
@@ -69,10 +77,6 @@
         format = "[$status]($style)";
         style = "bold red";
       };
-      character = rec {
-        success_symbol = "[\\$](bold yellow)";
-        error_symbol = success_symbol;
-      };
-    };
+   };
   };
 }

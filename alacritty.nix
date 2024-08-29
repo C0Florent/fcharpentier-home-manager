@@ -5,39 +5,40 @@
     live_config_reload = false;
 
     bell = {
-      animation = "EaseOutExpo";
-      duration = 100;
+      animation = "EaseOutQuart";
+      duration = 10;
+      color = "#444444";
     };
 
     colors = {
       draw_bold_text_with_bright_colors = true;
       primary = {
-        background = "0x030215";
-        foreground = "0xeff0eb";
+        background = "#030a0c";
+        foreground = "#e6f4f6";
       };
       normal = {
-        black   = "0x000000";
-        red     = "0x800000";
-        green   = "0x008000";
-        yellow  = "0x808000";
-        blue    = "0x000080";
-        magenta = "0x800080";
-        cyan    = "0x008080";
-        white   = "0xc0c0c0";
+        black = "#030a0c";
+        red = "#e73359";
+        green = "#59972d";
+        yellow = "#ae7714";
+        blue = "#2d83e8";
+        magenta = "#ba3ce8";
+        cyan = "#1a9696";
+        white = "#8dc4ce";
       };
       bright = {
-        black   = "0x808080";
-        red     = "0xff0000";
-        green   = "0x00ff00";
-        yellow  = "0xffff00";
-        blue    = "0x0000ff";
-        magenta = "0xff00ff";
-        cyan    = "0x00ffff";
-        white   = "0xffffff";
-     };
+        black = "#33595f";
+        red = "#f75b72";
+        green = "#67af34";
+        yellow = "#c98b1a";
+        blue = "#509af6";
+        magenta = "#ca64f3";
+        cyan = "#1faeae";
+        white = "#e6f4f6";
+      };
       cursor = {
-        background = "0x008ec4";
-        foreground = "0xf1f1f1";
+        text = "#030a0c";
+        cursor = "#8dc4ce";
       };
     };
 
@@ -51,7 +52,7 @@
     };
 
     font = {
-      size = 11;
+      size = 10;
       normal = {
         family = "MartianMono Nerd Font";
       };
@@ -84,7 +85,7 @@
       resize_increments = true;
       dimensions = {
         columns = 80;
-        lines = 24;
+        lines = 30;
       };
       padding = {
         x = 0;

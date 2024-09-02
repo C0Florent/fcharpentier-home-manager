@@ -4,7 +4,7 @@
 
     shellAliases = {
       cfgview = "cfg $SHELL";
-      cfgedit = "cfg \"sudo su\"";
+      cfgedit = "cfg \"sudo --preserve-env=SHLVL su\"";
 
       "²" = "true";
     };

@@ -10,7 +10,10 @@ let
   directory_lock = { bg = directory.bg; fg = "bold bright-yellow"; };
   username = { bg = "bright-white"; fg = "black"; };
   username_root = { bg = username.bg; fg = "bold dimmed red"; };
-  shlvl = { bg = directory.bg; fg = "purple"; };
+  git_branch = { bg = "cyan"; fg = "bold bright-white"; };
+  status = { bg = "dimmed red"; fg = "bold bright-white"; };
+  prestatus = { bg = "bright-black"; fg = "bright-white"; };
+  shlvl = { bg = prestatus.bg; fg = "purple"; };
 in
 {
   programs.starship = {
@@ -21,20 +24,19 @@ in
       add_newline = true;
 
       format = lib.concatStrings [
-        "[](${directory.bg})"
-        "[ ](${style_str directory})"
         "$username"
         "$directory"
-        "[](${directory.bg})"
+        "($git_branch)"
+        "[](fg:prev_bg bg:none)"
 
         "$line_break"
 
-        "[](${directory.bg})"
-        "[ ](bg:${directory.bg})"
+        "[ ](fg:bright-black)"
+        "[ ](bg:bright-black)"
         "$shlvl"
-        "[](fg:${directory.bg} bg:bright-green)"
-        "[     ](bg:bright-green)"
-        "[ ](fg:bright-green)"
+        "$character"
+        "$status"
+        "[ ](fg:prev_bg)"
       ];
 
      shlvl = {
@@ -50,7 +52,7 @@ in
         style_user = style_str username;
         style_root = style_str username_root;
         format = lib.concatStrings [
-          "[](fg:${username.bg} bg:${directory.bg})"
+          "[](fg:${username.bg} bg:prev_bg)"
           "[ ( $user) ]($style)"
           "[ ](fg:${username.bg} bg:${directory.bg})"
         ];
@@ -65,18 +67,30 @@ in
         format = "[ [$read_only]($read_only_style)$path]($style)";
       };
       git_branch = {
-        style = "blue";
-        format = "[$branch]($style)";
+        style = style_str git_branch;
+        symbol = "";
+        format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol $branch]($style)";
       };
       git_state = {
         style = "blue";
         format = "[|$state($progress_current/$progress_total)]($style)";
       };
+      character = {
+        success_symbol = "[   ](fg:prev_bg bg:bright-green)";
+        error_symbol = "[ ](fg:prev_bg bg:red)";
+        format = "$symbol";
+      };
       status = {
         disabled = false;
-        format = "[$status]($style)";
-        style = "bold red";
+        format = "[$status ]($style)";
+        style = "fg:bold bright-white bg:red";
       };
-   };
+
+      custom.my_status = {
+        when = true;
+        command = "";
+        shell = [ "${builtins.toPath ../hello.sh}"  ''\$?'' ];
+      };
+    };
   };
 }

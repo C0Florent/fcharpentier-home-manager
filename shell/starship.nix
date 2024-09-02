@@ -26,7 +26,7 @@ in
       format = lib.concatStrings [
         "$username"
         "$directory"
-        "($git_branch)"
+        "($git_branch$git_status)"
         "[](fg:prev_bg bg:none)"
 
         "$line_break"
@@ -70,6 +70,33 @@ in
         style = style_str git_branch;
         symbol = "";
         format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol $branch]($style)";
+      };
+      git_status = {
+        format = "[$ahead_behind( ${lib.concatStrings [
+          "$conflicted"
+          "$untracked"
+          "$renamed"
+          "$modified"
+          "$staged"
+          "$deleted"
+          "$stashed"
+        ]})]($style)";
+        style = style_str git_branch;
+
+        ahead = "⇡\${count}";
+        behind = "⇣\${count}";
+        diverged = "⇡\${ahead_count}⇣\${behind_count}";
+        up_to_date = "";
+
+        conflicted = "[\${count} ](bold red)";
+
+        untracked = "\${count} ";
+        renamed = "\${count}󰓹  ";
+        modified = "\${count} ";
+        staged = "\${count}󰝒 ";
+        deleted = "\${count} ";
+
+        stashed = "\${count} ";
       };
       git_state = {
         style = "blue";

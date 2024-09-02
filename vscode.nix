@@ -6,7 +6,7 @@
     mutableExtensionsDir = false;
 
     extensions = with pkgs.vscode-extensions; [
-      emmanuelbeziat.vscode-great-icons
+      equinusocio.vsc-material-theme-icons
 
       bbenoist.nix
       dart-code.dart-code
@@ -31,6 +31,7 @@
       "terminal.integrated.shellIntegration.enabled" = false;
 
       "workbench.colorTheme" = "Night Owl (No Italics)";
+      "workbench.iconTheme" = "eq-material-theme-icons";
     };
   };
 }

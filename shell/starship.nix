@@ -72,7 +72,7 @@ in
         format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol $branch]($style)";
       };
       git_status = {
-        format = "[$ahead_behind( ${lib.concatStrings [
+        format = "[$ahead_behind (${lib.concatStrings [
           "$conflicted"
           "$untracked"
           "$renamed"
@@ -86,7 +86,7 @@ in
         ahead = "⇡\${count}";
         behind = "⇣\${count}";
         diverged = "⇡\${ahead_count}⇣\${behind_count}";
-        up_to_date = "";
+        up_to_date = "";
 
         conflicted = "[\${count} ](bold red)";
 

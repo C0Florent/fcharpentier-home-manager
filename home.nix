@@ -15,10 +15,15 @@
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "vscode"
+  ];
+
   imports = [
     ./shell/bash.nix
     ./shell/starship.nix
     ./alacritty.nix
+    ./vscode.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your

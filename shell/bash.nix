@@ -23,6 +23,8 @@
       gpf = "git push --force-with-lease";
       gpff = "git push --force";
       gd = "git diff";
+      gb = "git branch";
+      gf = "git fetch";
     };
 
     bashrcExtra = ''

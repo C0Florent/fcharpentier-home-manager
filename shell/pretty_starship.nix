@@ -28,6 +28,7 @@ in
         "$directory"
         "$git_branch"
         "$git_status"
+        "$git_state"
         "[](fg:prev_bg bg:none)"
 
         "$line_break"
@@ -100,8 +101,8 @@ in
         stashed = "\${count} ";
       };
       git_state = {
-        style = "blue";
-        format = "[|$state($progress_current/$progress_total)]($style)";
+        style = style_str git_branch;
+        format = "[ | $state(: $progress_current/$progress_total)]($style)";
       };
       character = {
         success_symbol = "[   ](fg:prev_bg bg:bright-green)";

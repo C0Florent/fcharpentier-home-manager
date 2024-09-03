@@ -27,6 +27,8 @@
       gpff = "git push --force";
       gd = "git diff";
       gb = "git branch";
+      gsw = "git switch";
+      gswc = "git switch -c";
       gf = "git fetch";
     };
 

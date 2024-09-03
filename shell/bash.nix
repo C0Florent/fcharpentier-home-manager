@@ -29,6 +29,7 @@
       gb = "git branch";
       gsw = "git switch";
       gswc = "git switch -c";
+      gm = "git merge";
       gf = "git fetch";
     };
 

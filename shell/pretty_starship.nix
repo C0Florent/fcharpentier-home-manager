@@ -26,13 +26,14 @@ in
       format = lib.concatStrings [
         "$username"
         "$directory"
-        "($git_branch$git_status)"
+        "$git_branch"
+        "$git_status"
         "[](fg:prev_bg bg:none)"
 
         "$line_break"
 
-        "[ ](fg:bright-black)"
-        "[ ](bg:bright-black)"
+        "[ ](fg:${prestatus.bg})"
+        "[ ](bg:${prestatus.bg})"
         "$shlvl"
         "$character"
         "$status"
@@ -72,7 +73,7 @@ in
         format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol $branch]($style)";
       };
       git_status = {
-        format = "[$ahead_behind (${lib.concatStrings [
+        format = "[$ahead_behind ${lib.concatStrings [
           "$conflicted"
           "$untracked"
           "$renamed"
@@ -80,7 +81,7 @@ in
           "$staged"
           "$deleted"
           "$stashed"
-        ]})]($style)";
+        ]}]($style)";
         style = style_str git_branch;
 
         ahead = "⇡\${count}";
@@ -111,12 +112,6 @@ in
         disabled = false;
         format = "[$status ]($style)";
         style = "fg:bold bright-white bg:red";
-      };
-
-      custom.my_status = {
-        when = true;
-        command = "";
-        shell = [ "${builtins.toPath ../hello.sh}"  ''\$?'' ];
       };
     };
   };

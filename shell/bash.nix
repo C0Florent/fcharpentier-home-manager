@@ -6,6 +6,9 @@
       cfgview = "cfg $SHELL";
       cfgedit = "cfg \"sudo --preserve-env=SHLVL su\"";
 
+      hm = "home-manager";
+      hms = "home-manager switch";
+
       "²" = "true";
 
       ga = "git add";

@@ -32,6 +32,16 @@
 
       "workbench.colorTheme" = "Night Owl (No Italics)";
       "workbench.iconTheme" = "eq-material-theme-icons";
+
+      "[dart]" = {
+        "editor.formatOnSave" = true;
+        "editor.formatOnType" = false;
+
+        "editor.rulers" = [ 80 ];
+        "editor.selectionHighlight" = false;
+        "editor.tabCompletion" = "onlySnippets";
+        "editor.wordBasedSuggestions" = "off";
+      };
     };
   };
 }

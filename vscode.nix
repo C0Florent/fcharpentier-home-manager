@@ -15,6 +15,7 @@
       dart-code.flutter
 
       rust-lang.rust-analyzer
+      tamasfe.even-better-toml
 
       sdras.night-owl
     ];

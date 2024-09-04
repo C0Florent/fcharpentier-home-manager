@@ -12,6 +12,8 @@
       dart-code.dart-code
       dart-code.flutter
 
+      rust-lang.rust-analyzer
+
       sdras.night-owl
     ];
 

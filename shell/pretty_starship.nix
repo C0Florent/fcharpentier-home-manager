@@ -90,7 +90,7 @@ in
         diverged = "⇡\${ahead_count}⇣\${behind_count}";
         up_to_date = "";
 
-        conflicted = "[\${count} ](bold red)";
+        conflicted = "[\${count} ](fg:bold red bg:prev_bg)";
 
         untracked = "\${count} ";
         renamed = "\${count}󰓹  ";

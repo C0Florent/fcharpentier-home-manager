@@ -70,11 +70,11 @@ in
       };
       git_branch = {
         style = style_str git_branch;
-        symbol = "";
-        format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol $branch]($style)";
+        symbol = " ";
+        format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol$branch]($style)";
       };
       git_status = {
-        format = "[$ahead_behind ${lib.concatStrings [
+        format = "[$ahead_behind ( ${lib.concatStrings [
           "$conflicted"
           "$untracked"
           "$renamed"
@@ -82,13 +82,13 @@ in
           "$staged"
           "$deleted"
           "$stashed"
-        ]}]($style)";
+        ]})]($style)";
         style = style_str git_branch;
 
         ahead = "⇡\${count}";
         behind = "⇣\${count}";
         diverged = "⇡\${ahead_count}⇣\${behind_count}";
-        up_to_date = "";
+        up_to_date = " ";
 
         conflicted = "[\${count} ](fg:bold red bg:prev_bg)";
 

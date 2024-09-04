@@ -9,6 +9,8 @@
       equinusocio.vsc-material-theme-icons
 
       bbenoist.nix
+      brettm12345.nixfmt-vscode
+
       dart-code.dart-code
       dart-code.flutter
 

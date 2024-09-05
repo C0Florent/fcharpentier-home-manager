@@ -73,16 +73,21 @@ in
         symbol = " ";
         format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol$branch]($style)";
       };
-      git_status = {
-        format = "[$ahead_behind ( ${lib.concatStrings [
-          "$conflicted"
-          "$staged"
-          "$renamed"
-          "$modified"
-          "$deleted"
-          "$untracked"
-          "$stashed"
-        ]})]($style)";
+      git_status = let
+        subm = symbol: " ${symbol} \${count} ";
+      in {
+        format = lib.concatStrings [
+          "["
+            "$ahead_behind "
+            "$conflicted"
+            "$staged"
+            "$renamed"
+            "$modified"
+            "$deleted"
+            "$untracked"
+            "$stashed"
+          "]($style)"
+        ];
         style = style_str git_branch;
 
         ahead = "⇡\${count}";
@@ -92,13 +97,13 @@ in
 
         conflicted = "[\${count} ](fg:bold red bg:prev_bg)";
 
-        untracked = "\${count} ";
-        renamed = "\${count}󰓹  ";
-        modified = "\${count} ";
-        staged = "\${count}󰝒 ";
-        deleted = "\${count} ";
+        untracked = subm "";
+        renamed = subm "󰓹";
+        modified = subm "";
+        staged = subm "󰝒";
+        deleted = subm "";
 
-        stashed = "\${count} ";
+        stashed = subm "";
       };
       git_state = {
         style = style_str git_branch;

@@ -76,11 +76,11 @@ in
       git_status = {
         format = "[$ahead_behind ( ${lib.concatStrings [
           "$conflicted"
-          "$untracked"
+          "$staged"
           "$renamed"
           "$modified"
-          "$staged"
           "$deleted"
+          "$untracked"
           "$stashed"
         ]})]($style)";
         style = style_str git_branch;

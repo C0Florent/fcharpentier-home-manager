@@ -13,32 +13,32 @@
     colors = {
       draw_bold_text_with_bright_colors = true;
       primary = {
-        background = "#030a0c";
-        foreground = "#e6f4f6";
+        background = "#0e050d";
+        foreground = "#f6eef5";
       };
       normal = {
-        black = "#030a0c";
-        red = "#e73359";
-        green = "#59972d";
-        yellow = "#ae7714";
-        blue = "#2d83e8";
-        magenta = "#ba3ce8";
-        cyan = "#1a9696";
-        white = "#8dc4ce";
+        black = "#0e050d";
+        red = "#f41400";
+        green = "#009e48";
+        yellow = "#a17f00";
+        blue = "#5674ff";
+        magenta = "#d700d0";
+        cyan = "#0095a7";
+        white = "#d1abcc";
       };
       bright = {
-        black = "#33595f";
-        red = "#f75b72";
-        green = "#67af34";
-        yellow = "#c98b1a";
-        blue = "#509af6";
-        magenta = "#ca64f3";
-        cyan = "#1faeae";
-        white = "#e6f4f6";
+        black = "#694269";
+        red = "#ff5743";
+        green = "#00b754";
+        yellow = "#ba9400";
+        blue = "#7190ff";
+        magenta = "#f700f0";
+        cyan = "#00acc1";
+        white = "#f6eef5";
       };
       cursor = {
-        text = "#030a0c";
-        cursor = "#8dc4ce";
+        text = "#0e050d";
+        cursor = "#d1abcc";
       };
     };
 

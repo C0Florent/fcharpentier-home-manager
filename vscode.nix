@@ -29,6 +29,8 @@
     ];
 
     userSettings = {
+      "git.openRepositoryInParentFolders" = "always";
+
       "terminal.integrated.fontFamily" = "MartianMono Nerd Font";
       "terminal.integrated.fontSize" = 12;
       "terminal.integrated.tabs.focusMode" = "singleClick";

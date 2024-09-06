@@ -22,7 +22,7 @@ rec {
 
   imports = [
     ./shell/bash.nix
-    (import ./shell/starship.nix {inherit pkgs lib; inherit (home) username;})
+    (import ./shell/starship.nix {inherit lib; inherit (home) username;})
     ./alacritty.nix
     ./vscode.nix
   ];

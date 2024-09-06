@@ -52,9 +52,9 @@
     };
 
     font = {
-      size = 11;
+      size = 10;
       normal = {
-        family = "FiraCode Nerd Font";
+        family = "MartianMono Nerd Font";
       };
     };
 

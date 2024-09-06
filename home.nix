@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 
-{
+rec {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "fcharpentier";
@@ -22,7 +22,7 @@
 
   imports = [
     ./shell/bash.nix
-    ./shell/starship.nix
+    (import ./shell/starship.nix {inherit pkgs lib; inherit (home) username;})
     ./alacritty.nix
     ./vscode.nix
   ];

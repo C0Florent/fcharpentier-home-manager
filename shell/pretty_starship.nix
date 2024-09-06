@@ -1,20 +1,21 @@
-{ lib, ... }:
+{ lib, username, ... }:
 
 let 
   style_str = { bg, fg }: "bg:${bg} fg:${fg}";
   inv_style_str = { bg, fg }: "bg:${fg} fg:${bg}";
 
-  prompt_ok = "bright-green";
-  prompt_ko = { bg ="bright-red"; fg = "white"; };
-  directory = { bg = "blue"; fg = "bold bright-white"; };
-  directory_lock = { bg = directory.bg; fg = "bold bright-yellow"; };
-  username = { bg = "bright-white"; fg = "black"; };
-  username_root = { bg = username.bg; fg = "bold dimmed red"; };
-  git_branch = { bg = git_status.bg; fg = "bold ${git_status.fg}"; };
-  git_status = { bg = "cyan"; fg = "bright-white"; };
-  status = { bg = "dimmed red"; fg = "bold bright-white"; };
-  prestatus = { bg = "bright-black"; fg = "bright-white"; };
-  shlvl = { bg = prestatus.bg; fg = "purple"; };
+  # Definition of module colours
+  m_prompt_ok = "bright-green";
+  m_prompt_ko = { bg ="bright-red"; fg = "white"; };
+  m_directory = { bg = "blue"; fg = "bold bright-white"; };
+  m_directory_lock = { bg = m_directory.bg; fg = "bold bright-yellow"; };
+  m_username = { bg = "bright-white"; fg = "black"; };
+  m_username_root = { bg = m_username.bg; fg = "bold dimmed red"; };
+  m_git_branch = { bg = m_git_status.bg; fg = "bold ${m_git_status.fg}"; };
+  m_git_status = { bg = "cyan"; fg = "bright-white"; };
+  m_status = { bg = "dimmed red"; fg = "bold bright-white"; };
+  m_prestatus = { bg = "bright-black"; fg = "bright-white"; };
+  m_shlvl = { bg = m_prestatus.bg; fg = "purple"; };
 in
 {
   programs.starship = {
@@ -34,8 +35,8 @@ in
 
         "$line_break"
 
-        "[ ](fg:${prestatus.bg})"
-        "[ ](bg:${prestatus.bg})"
+        "[ ](fg:${m_prestatus.bg})"
+        "[ ](bg:${m_prestatus.bg})"
         "$shlvl"
         "$character"
         "$status"
@@ -46,33 +47,33 @@ in
         disabled = false;
         repeat = true;
         threshold = 1;
-        symbol = "[](${inv_style_str shlvl})[](${style_str shlvl})";
+        symbol = "[](${inv_style_str m_shlvl})[](${style_str m_shlvl})";
         format = "[$symbol]($style)";
-        style = style_str directory;
+        style = style_str m_directory;
       };
       username = {
         show_always = true;
-        style_user = style_str username;
-        style_root = style_str username_root;
+        style_user = style_str m_username;
+        style_root = style_str m_username_root;
         format = lib.concatStrings [
-          "[](fg:${username.bg} bg:prev_bg)"
+          "[](fg:${m_username.bg} bg:prev_bg)"
           "[ ( $user) ]($style)"
-          "[ ](fg:${username.bg} bg:${directory.bg})"
+          "[ ](fg:${m_username.bg} bg:${m_directory.bg})"
         ];
-        aliases = { "fcharpentier" = ""; };
+        aliases = { "${username}" = ""; };
       };
       directory = {
         truncation_symbol = "…/";
         truncation_length = 2;
-        style = style_str directory;
-        read_only_style = style_str directory_lock;
+        style = style_str m_directory;
+        read_only_style = style_str m_directory_lock;
         read_only = " ";
         format = "[ [$read_only]($read_only_style)$path]($style)";
       };
       git_branch = {
-        style = style_str git_branch;
+        style = style_str m_git_branch;
         symbol = " ";
-        format = "[](fg:prev_bg bg:${git_branch.bg})[ $symbol$branch]($style)";
+        format = "[](fg:prev_bg bg:${m_git_branch.bg})[ $symbol$branch]($style)";
       };
       git_status = let
         subm = symbol: " ${symbol} \${count} ";
@@ -89,7 +90,7 @@ in
             "$stashed"
           "]($style)"
         ];
-        style = style_str git_status;
+        style = style_str m_git_status;
 
         ahead = "󰶼\${count}";
         behind = "󰶹\${count}";
@@ -107,7 +108,7 @@ in
         stashed = subm "";
       };
       git_state = {
-        style = style_str git_branch;
+        style = style_str m_git_branch;
         format = "[ | $state(: $progress_current/$progress_total)]($style)";
       };
       character = {

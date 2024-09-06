@@ -10,7 +10,8 @@ let
   directory_lock = { bg = directory.bg; fg = "bold bright-yellow"; };
   username = { bg = "bright-white"; fg = "black"; };
   username_root = { bg = username.bg; fg = "bold dimmed red"; };
-  git_branch = { bg = "cyan"; fg = "bold bright-white"; };
+  git_branch = { bg = git_status.bg; fg = "bold ${git_status.fg}"; };
+  git_status = { bg = "cyan"; fg = "bright-white"; };
   status = { bg = "dimmed red"; fg = "bold bright-white"; };
   prestatus = { bg = "bright-black"; fg = "bright-white"; };
   shlvl = { bg = prestatus.bg; fg = "purple"; };
@@ -77,7 +78,7 @@ in
         subm = symbol: " ${symbol} \${count} ";
       in {
         format = lib.concatStrings [
-          "["
+          "[ "
             "$ahead_behind "
             "$conflicted"
             "$staged"
@@ -88,12 +89,12 @@ in
             "$stashed"
           "]($style)"
         ];
-        style = style_str git_branch;
+        style = style_str git_status;
 
-        ahead = "⇡\${count}";
-        behind = "⇣\${count}";
-        diverged = "⇡\${ahead_count}⇣\${behind_count}";
-        up_to_date = " ";
+        ahead = "󰶼\${count}";
+        behind = "󰶹\${count}";
+        diverged = "󰶹\${ahead_count} 󰶼\${behind_count}";
+        up_to_date = "";
 
         conflicted = "[\${count} ](fg:bold red bg:prev_bg)";
 

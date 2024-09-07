@@ -94,7 +94,7 @@ in
 
         ahead = "󰶼\${count}";
         behind = "󰶹\${count}";
-        diverged = "󰶹\${ahead_count} 󰶼\${behind_count}";
+        diverged = "󰶼\${ahead_count} 󰶹\${behind_count}";
         up_to_date = "";
 
         conflicted = "[\${count} ](fg:bold red bg:prev_bg)";

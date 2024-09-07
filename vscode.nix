@@ -6,7 +6,8 @@
     mutableExtensionsDir = false;
 
     extensions = with pkgs.vscode-extensions; [
-      equinusocio.vsc-material-theme-icons
+      vscode-icons-team.vscode-icons
+      eamodio.gitlens
 
       bbenoist.nix
       brettm12345.nixfmt-vscode
@@ -38,7 +39,7 @@
       "terminal.integrated.shellIntegration.enabled" = false;
 
       "workbench.colorTheme" = "Night Owl (No Italics)";
-      "workbench.iconTheme" = "eq-material-theme-icons";
+      "workbench.iconTheme" = "vscode-icons";
 
       "[dart]" = {
         "editor.formatOnSave" = true;

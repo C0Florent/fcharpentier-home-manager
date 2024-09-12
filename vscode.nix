@@ -50,6 +50,7 @@
         "editor.tabCompletion" = "onlySnippets";
         "editor.wordBasedSuggestions" = "off";
       };
+      "editor.hover.delay" = 500;
     };
   };
 }

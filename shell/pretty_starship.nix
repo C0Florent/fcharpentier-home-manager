@@ -97,7 +97,7 @@ in
         diverged = "󰶼\${ahead_count} 󰶹\${behind_count}";
         up_to_date = "";
 
-        conflicted = "[\${count} ](fg:bold red bg:prev_bg)";
+        conflicted = "[  \${count} ](fg:bold red bg:prev_bg)";
 
         untracked = subm "";
         renamed = subm "󰓹";
@@ -109,7 +109,7 @@ in
       };
       git_state = {
         style = style_str m_git_branch;
-        format = "[ | $state(: $progress_current/$progress_total)]($style)";
+        format = "[ $state(: $progress_current/$progress_total) ]($style)";
       };
       character = {
         success_symbol = "[   ](fg:prev_bg bg:bright-green)";

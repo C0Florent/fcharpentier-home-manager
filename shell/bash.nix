@@ -12,6 +12,7 @@
       "²" = "true";
 
       ga = "git add";
+      gc = "git commit";
       gcm = "git commit -m";
       gcam = "git commit -am";
       gp = "git push";
@@ -20,7 +21,7 @@
       gs = "git status";
       gr = "git restore";
       grs = "git restore --staged";
-      gst = "git stash push";
+      gst = "git stash";
       gstp = "git stash pop";
       gl = "git log";
       gpf = "git push --force-with-lease";

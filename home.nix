@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, pkgs-latest, ... }:
 
 rec {
   # Home Manager needs a bit of information about you and the paths it should
@@ -24,7 +24,7 @@ rec {
     ./shell/bash.nix
     (import ./shell/starship.nix {inherit lib; inherit (home) username;})
     ./alacritty.nix
-    ./vscode.nix
+    (import ./vscode.nix {pkgs = pkgs-latest;})
   ];
 
   # The home.packages option allows you to install Nix packages into your

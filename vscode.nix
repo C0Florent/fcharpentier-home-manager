@@ -12,6 +12,9 @@
       bbenoist.nix
       brettm12345.nixfmt-vscode
 
+      llvm-vs-code-extensions.vscode-clangd
+      xaver.clang-format
+
       dart-code.dart-code
       dart-code.flutter
 

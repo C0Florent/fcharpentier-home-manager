@@ -52,6 +52,8 @@
       };
       "editor.hover.delay" = 500;
       "editor.minimap.renderCharacters" = false;
+      "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
+      "[makefile]"."editor.tabSize" = 8;
     };
   };
 }

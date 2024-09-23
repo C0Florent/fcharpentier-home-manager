@@ -51,6 +51,7 @@
         "editor.wordBasedSuggestions" = "off";
       };
       "editor.hover.delay" = 500;
+      "editor.minimap.renderCharacters" = false;
     };
   };
 }

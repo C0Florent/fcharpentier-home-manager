@@ -15,11 +15,6 @@ rec {
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "vscode"
-    "postman"
-  ];
-
   imports = [
     ./shell/bash.nix
     (import ./shell/starship.nix {inherit lib; inherit (home) username;})
@@ -31,7 +26,6 @@ rec {
   # environment.
   home.packages = with pkgs; [
     tree
-    postman
     wl-clipboard
   ];
 

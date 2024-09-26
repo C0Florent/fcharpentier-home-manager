@@ -32,6 +32,7 @@ rec {
   home.packages = with pkgs; [
     tree
     postman
+    wl-clipboard
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

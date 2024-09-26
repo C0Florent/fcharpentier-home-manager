@@ -9,6 +9,7 @@
     extensions = with pkgs.vscode-extensions; [
       vscode-icons-team.vscode-icons
       eamodio.gitlens
+      mhutchie.git-graph
 
       bbenoist.nix
       brettm12345.nixfmt-vscode

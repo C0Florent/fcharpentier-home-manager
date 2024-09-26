@@ -66,3 +66,31 @@ cdp()
 	cd $1
 	nix develop
 }
+
+cod()
+{
+	local CODE=codium
+	local CODE_CMD="$(which $CODE)"
+
+	if [ -z $CODE_CMD ]; then
+		echo >&2 "Couldn't find $CODE in PATH"
+		return 1
+	fi
+
+	if [ ! -z "$1" ]; then
+		cd "$1" || return 1
+	fi
+
+	if [ -r "./flake.nix" ]; then
+		echo "$FUNCNAME: Launching $CODE in nix dev shell"
+		nix develop -c "$CODE_CMD" .
+	else
+		echo "$FUNCNAME: Launching $CODE"
+		"$CODE_CMD" .
+	fi
+
+	echo
+	echo "$FUNCNAME: Success, exiting in 1 second..."
+	sleep 1
+	exit
+}

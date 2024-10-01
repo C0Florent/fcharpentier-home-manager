@@ -20,6 +20,7 @@ rec {
     (import ./shell/starship.nix {inherit lib; inherit (home) username;})
     ./alacritty.nix
     (import ./vscode.nix {pkgs = pkgs-latest;})
+    ./eza.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -27,6 +28,8 @@ rec {
   home.packages = with pkgs; [
     tree
     wl-clipboard
+    clang
+    clang-tools
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

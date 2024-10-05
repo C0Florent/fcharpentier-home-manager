@@ -15,6 +15,7 @@
       brettm12345.nixfmt-vscode
 
       llvm-vs-code-extensions.vscode-clangd
+      twxs.cmake
       xaver.clang-format
 
       dart-code.dart-code

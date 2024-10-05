@@ -83,10 +83,10 @@ cod()
 
 	if [ -r "./flake.nix" ]; then
 		echo "$FUNCNAME: Launching $CODE in nix dev shell"
-		nix develop -c "$CODE_CMD" .
+		nix develop -c "$CODE_CMD" . || return $?
 	else
 		echo "$FUNCNAME: Launching $CODE"
-		"$CODE_CMD" .
+		"$CODE_CMD" . || return $?
 	fi
 
 	echo

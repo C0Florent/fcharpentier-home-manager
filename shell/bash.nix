@@ -32,6 +32,8 @@
       gswc = "git switch -c";
       gm = "git merge";
       gf = "git fetch";
+      grb = "git rebase";
+      grbc = "git rebase --continue";
     };
 
     bashrcExtra = ''

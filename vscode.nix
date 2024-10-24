@@ -25,6 +25,8 @@
       tamasfe.even-better-toml
 
       sdras.night-owl
+
+      tomoki1207.pdf
     ];
 
     keybindings = [

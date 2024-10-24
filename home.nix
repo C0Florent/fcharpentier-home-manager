@@ -1,5 +1,10 @@
 { config, pkgs, lib, pkgs-latest, ... }:
 
+let
+  myPkgsPaths = [
+    ./shell/ghcl.nix
+  ];
+in
 rec {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -30,7 +35,7 @@ rec {
     wl-clipboard
     clang
     clang-tools
-  ];
+  ] ++ (map (p: import p {inherit pkgs;}) myPkgsPaths);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

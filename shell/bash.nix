@@ -34,6 +34,11 @@
       gf = "git fetch";
       grb = "git rebase";
       grbc = "git rebase --continue";
+
+      ghcl = "ghcl -L 500";
+      ghcle = "ghcl EpitechPromo2027";
+
+      lg = "lazygit";
     };
 
     bashrcExtra = ''

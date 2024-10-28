@@ -26,6 +26,7 @@ rec {
     ./alacritty.nix
     (import ./vscode.nix {pkgs = pkgs-latest;})
     ./eza.nix
+    ./lazygit.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your

@@ -35,6 +35,11 @@
         command = "terminal.focus";
         when = null;
       }
+      {
+        key = "ctrl+alt+M";
+        command = "workbench.action.terminal.sendSequence";
+        args.text = "make\n";
+      }
     ];
 
     userSettings = {

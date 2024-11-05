@@ -27,6 +27,7 @@
       sdras.night-owl
 
       tomoki1207.pdf
+      streetsidesoftware.code-spell-checker
     ];
 
     keybindings = [

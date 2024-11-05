@@ -63,6 +63,7 @@
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
       "[makefile]"."editor.tabSize" = 8;
       "editor.inlayHints.fontSize" = 12;
+      "cSpell.userWords" = [ "Epitech" ];
     };
   };
 }

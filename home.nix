@@ -3,6 +3,7 @@
 let
   myPkgsPaths = [
     ./shell/ghcl.nix
+    ./shell/gsw.nix
   ];
 in
 rec {

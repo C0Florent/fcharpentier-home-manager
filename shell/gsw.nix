@@ -15,7 +15,7 @@ pkgs.writeShellScriptBin "gsw" ''
         exit 1;
     fi
     
-    chosen_branch="$((echo "$current_branch"; git branch | grep -v "^\* $current_branch$") | ${fzf})"
+    chosen_branch="$((echo "$current_branch"; git branch | grep -v "^\* $current_branch\$") | ${fzf} '--height=~50%')"
 
     if [ -z "$chosen_branch" ]; then
         exit 1;

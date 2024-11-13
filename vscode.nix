@@ -29,6 +29,9 @@
 
       tomoki1207.pdf
       streetsidesoftware.code-spell-checker
+
+      justusadam.language-haskell
+      haskell.haskell
     ];
 
     keybindings = [
@@ -71,6 +74,9 @@
       "[makefile]"."editor.tabSize" = 8;
       "editor.inlayHints.fontSize" = 12;
       "cSpell.userWords" = [ "Epitech" ];
+
+      "haskell.manageHLS" = "PATH";
+      "haskell.serverExecutablePath" = "haskell-language-server-wrapper";
     };
   };
 }

@@ -39,6 +39,8 @@
       ghcle = "ghcl EpitechPromo2027";
 
       lg = "lazygit";
+
+      epishell = ''docker run --rm -v "$(pwd):/usr/local/bugs/delivery" -it -w '/usr/local/bugs/delivery' -p 4242:4242 epitechcontent/epitest-docker'';
     };
 
     bashrcExtra = ''

@@ -67,6 +67,16 @@
       ];
     };
 
+    keyboard = {
+      bindings = [
+        {
+          key = "Back";
+          mods = "Control";
+          chars = builtins.fromJSON ''"\u0017"'';
+        }
+      ];
+    };
+
     scrolling = {
       history = 15000;
       multiplier = 3;

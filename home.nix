@@ -37,6 +37,7 @@ rec {
     wl-clipboard
     clang
     clang-tools
+    unzip
   ] ++ (map (p: import p {inherit pkgs;}) myPkgsPaths);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

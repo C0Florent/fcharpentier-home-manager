@@ -32,6 +32,8 @@
 
       justusadam.language-haskell
       haskell.haskell
+
+      iliazeus.vscode-ansi
     ];
 
     keybindings = [

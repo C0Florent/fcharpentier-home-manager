@@ -13,32 +13,54 @@
     colors = {
       draw_bold_text_with_bright_colors = true;
       primary = {
-        background = "#0e050d";
-        foreground = "#f6eef5";
+        background = "#011627";
+        foreground = "#c6cedb";
       };
       normal = {
-        black = "#0e050d";
-        red = "#f41400";
-        green = "#009e48";
-        yellow = "#a17f00";
-        blue = "#5674ff";
-        magenta = "#d700d0";
-        cyan = "#0095a7";
-        white = "#d1abcc";
+        black = "#011627";
+        red = "#EF5350";
+        green = "#22da6e";
+        yellow = "#c5e478";
+        blue = "#82AAFF";
+        magenta = "#C792EA";
+        cyan = "#21c7a8";
+        white = "#ffffff";
       };
       bright = {
-        black = "#694269";
-        red = "#ff5743";
-        green = "#00b754";
-        yellow = "#ba9400";
-        blue = "#7190ff";
-        magenta = "#f700f0";
-        cyan = "#00acc1";
-        white = "#f6eef5";
+        black = "#575656";
+        red = "#EF5350";
+        green = "#22da6e";
+        yellow = "#ffeb95";
+        blue = "#82AAFF";
+        magenta = "#C792EA";
+        cyan = "#7fdbca";
+        white = "#ffffff";
       };
       cursor = {
-        text = "#0e050d";
-        cursor = "#d1abcc";
+        text = "CellBackground";
+        cursor = "CellForeground";
+      };
+      vi_mode_cursor = {
+        text = "CellBackground";
+        cursor = "#22da6e";
+      };
+      search = {
+        matches = {
+          foreground = "#000000";
+          background = "#22da6e";
+        };
+        focused_match = {
+          foreground = "#ffffff";
+          background = "#22da6e";
+        };
+      };
+      footer_bar = {
+        foreground = "#ffffff";
+        background = "#1d3b53";
+      };
+      selection = {
+        text = "#ffffff";
+        background = "#0d486e";
       };
     };
 

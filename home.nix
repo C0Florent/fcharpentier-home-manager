@@ -23,6 +23,7 @@ rec {
 
   imports = [
     ./shell/bash.nix
+    ./shell/nu.nix
     (import ./shell/starship.nix {inherit lib; inherit (home) username;})
     ./alacritty.nix
     (import ./vscode.nix {pkgs = pkgs-latest;})

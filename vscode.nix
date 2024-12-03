@@ -34,6 +34,8 @@
       haskell.haskell
 
       iliazeus.vscode-ansi
+
+      ms-vscode.live-server
     ];
 
     keybindings = [

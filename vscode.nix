@@ -1,12 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, vscode-extensions, ... }:
 
+let
+  extensions = vscode-extensions;
+in
 {
   programs.vscode = {
     package = pkgs.vscodium;
     enable = true;
     mutableExtensionsDir = false;
 
-    extensions = with pkgs.vscode-extensions; [
+    extensions =
+    with extensions.vscode-marketplace;
+    with pkgs.vscode-extensions; [
       vscode-icons-team.vscode-icons
       eamodio.gitlens
       mhutchie.git-graph

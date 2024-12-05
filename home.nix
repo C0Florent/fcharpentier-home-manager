@@ -1,4 +1,4 @@
-{ config, pkgs, lib, pkgs-latest, ... }:
+{ config, pkgs, lib, pkgs-latest, vscode-extensions, ... }:
 
 let
   myPkgsPaths = [
@@ -26,7 +26,7 @@ rec {
     ./shell/nu.nix
     (import ./shell/starship.nix {inherit lib; inherit (home) username;})
     ./alacritty.nix
-    (import ./vscode.nix {pkgs = pkgs-latest;})
+    (import ./vscode.nix {pkgs = pkgs-latest; inherit vscode-extensions;})
     ./eza.nix
     ./lazygit.nix
   ];

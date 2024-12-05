@@ -18,17 +18,22 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
 
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixpkgs-latest, ... }:
+  outputs = { nixpkgs, home-manager, nixpkgs-latest, nix-vscode-extensions, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-latest = nixpkgs-latest.legacyPackages.${system};
+      vscode-extensions = nix-vscode-extensions.extensions.${system};
     in {
       homeConfigurations."fcharpentier" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -40,7 +45,7 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
-          inherit pkgs-latest;
+          inherit pkgs-latest vscode-extensions;
         };
       };
     };

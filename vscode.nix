@@ -67,6 +67,19 @@
 
       "workbench.colorTheme" = "Night Owl (No Italics)";
       "workbench.iconTheme" = "vscode-icons";
+      "workbench.colorCustomizations" = let
+        # Provided by https://github.com/sdras/night-owl-vscode-theme?tab=readme-ov-file#separate-the-editor-from-the-sidebar,
+        # patched to preference
+        activateSideBar = builtins.fromJSON ''
+          {
+            "activityBar.border": "#102a44",
+            "editorGroup.border": "#102a44",
+            "sideBar.border": "#102a44"
+          }
+        ''; in {
+          "[Night Owl]" = activateSideBar;
+          "[Night Owl (No Italics)]" = activateSideBar;
+      };
 
       "[dart]" = {
         "editor.formatOnSave" = true;

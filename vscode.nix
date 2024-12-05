@@ -15,6 +15,7 @@ in
       vscode-icons-team.vscode-icons
       eamodio.gitlens
       mhutchie.git-graph
+      shardulm94.trailing-spaces
 
       bbenoist.nix
       brettm12345.nixfmt-vscode

@@ -36,6 +36,8 @@
       iliazeus.vscode-ansi
 
       ms-vscode.live-server
+
+      vscodevim.vim
     ];
 
     keybindings = [
@@ -53,6 +55,20 @@
         key = "ctrl+alt+M";
         command = "workbench.action.terminal.sendSequence";
         args.text = "make\n";
+      }
+      {
+        key = "alt+v";
+        when = ''inputFocus && (
+          vim.mode == 'Disabled' || vim.mode == 'Normal'
+        )'';
+        command = "runCommands";
+        args = {
+          commands = [
+            "toggleVim"
+            #"settings.cycle.vimSmartLineNumbers"
+            #"settings.cycle.lineNumber"
+          ];
+        };
       }
     ];
 
@@ -99,6 +115,8 @@
 
       "haskell.manageHLS" = "PATH";
       "haskell.serverExecutablePath" = "haskell-language-server-wrapper";
+      
+      "vim.smartRelativeLine" = true;
     };
   };
 }

@@ -4,12 +4,8 @@
   inputs = {
     # The "standard" nixpkgs which is used for modules which
     # don't need frequent updates, and are ok staying with older versions
-    #
-    # It might seem weird that this points to unstable, but the flake.lock
-    # actually make all versions static. This should be updated to 24.11
-    # when it is out.
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/nixos-24.11";
     };
 
     # The "cutting-edge" nixpkgs, used by modules that always
@@ -23,7 +19,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

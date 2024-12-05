@@ -2,7 +2,7 @@
   programs.alacritty.enable = true;
 
   programs.alacritty.settings = {
-    live_config_reload = false;
+    general.live_config_reload = false;
 
     bell = {
       animation = "EaseOutQuart";

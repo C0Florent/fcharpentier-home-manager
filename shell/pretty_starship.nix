@@ -106,7 +106,6 @@ in
         modified = subm "";
         staged = subm "󰝒";
         deleted = subm "";
-
         stashed = subm "";
       };
       git_state = {

@@ -45,6 +45,11 @@
         when = null;
       }
       {
+        key = "ctrl+[Backquote]";
+        command = "workbench.action.navigateBack";
+        when = "canNavigateBack";
+      }
+      {
         key = "ctrl+alt+M";
         command = "workbench.action.terminal.sendSequence";
         args.text = "make\n";

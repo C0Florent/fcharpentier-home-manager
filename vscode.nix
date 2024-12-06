@@ -123,6 +123,14 @@ in
       "haskell.serverExecutablePath" = "haskell-language-server-wrapper";
       
       "vim.smartRelativeLine" = true;
+      "vim.normalModeKeyBindings" = [
+        {
+          before = ["<C-p>"];
+          commands = [
+            "workbench.action.quickOpen"
+          ];
+        }
+      ];
     };
   };
 }

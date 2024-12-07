@@ -130,6 +130,13 @@ in
             "workbench.action.quickOpen"
           ];
         }
+        {
+          before = ["<C-space>"];
+          commands = [
+            "editor.action.triggerSuggest"
+          ];
+          when = "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible";
+        }
       ];
     };
   };

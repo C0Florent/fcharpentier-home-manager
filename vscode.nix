@@ -84,6 +84,7 @@ in
       "terminal.integrated.fontFamily" = "MartianMono Nerd Font";
       "terminal.integrated.fontSize" = 12;
       "terminal.integrated.tabs.focusMode" = "singleClick";
+      "files.insertFinalNewline" = true;
 
       "terminal.integrated.shellIntegration.enabled" = false;
 

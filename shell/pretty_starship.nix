@@ -77,7 +77,7 @@ in
         format = "[](fg:prev_bg bg:${m_git_branch.bg})[ $symbol$branch]($style)";
       };
       git_status = let
-        sep = "[](bg:prev_bg fg:bold prev_fg)";
+        sep = "[](${style_str m_git_status})";
         subm = symbol: "${sep} ${symbol} \${count} ";
       in {
         format = lib.concatStrings [

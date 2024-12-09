@@ -17,6 +17,8 @@ in
       mhutchie.git-graph
       shardulm94.trailing-spaces
 
+      github.vscode-github-actions
+
       bbenoist.nix
       brettm12345.nixfmt-vscode
 

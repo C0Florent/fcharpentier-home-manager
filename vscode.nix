@@ -124,7 +124,14 @@ in
 
       "haskell.manageHLS" = "PATH";
       "haskell.serverExecutablePath" = "haskell-language-server-wrapper";
-      
+
+      "terminal.integrated.profiles.linux" = {
+        "bash" = {
+          "path" = "~/.bashrc";
+          "icon" = "terminal-bash";
+        };
+      };
+
       "vim.smartRelativeLine" = true;
       "vim.normalModeKeyBindings" = [
         {

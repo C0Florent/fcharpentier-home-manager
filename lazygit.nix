@@ -1,7 +1,13 @@
 { pkgs, ... }:
 
 {
+  programs.lazygit = {
 
-  programs.lazygit.enable = true;
+    enable = true;
 
+    settings = {
+      git.parseEmoji = true;
+    };
+
+  };
 }

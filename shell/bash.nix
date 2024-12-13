@@ -1,5 +1,7 @@
+{ lib, ... }:
+
 {
-  programs.bash = {
+  programs.bash = rec {
     enable = true;
 
     shellAliases = {
@@ -43,8 +45,14 @@
       epishell = ''docker run --rm -v "$(pwd):/usr/local/bugs/delivery" -it -w '/usr/local/bugs/delivery' -p 4242:4242 epitechcontent/epitest-docker'';
     };
 
-    bashrcExtra = ''
+    bashrcExtra = let
+      foldOnAttributes = f: lib.attrsets.foldlAttrs (acc: name: _: f acc name);
+      complete-alias-commands = foldOnAttributes (acc: aliasName: acc + ''
+        complete -F _complete_alias ${aliasName}
+      '') "" shellAliases;
+    in ''
       source ${builtins.toPath ./bash_functions.sh}
+      ${complete-alias-commands}
       unmute
     '';
   };

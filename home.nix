@@ -28,6 +28,7 @@ rec {
     ./alacritty.nix
     (import ./vscode.nix {pkgs = pkgs-latest; inherit vscode-extensions;})
     ./eza.nix
+    ./bat.nix
     ./lazygit.nix
   ];
 

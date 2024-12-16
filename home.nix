@@ -7,8 +7,6 @@ let
   ];
 in
 rec {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "fcharpentier";
   home.homeDirectory = "/home/fcharpentier";
 
@@ -32,8 +30,6 @@ rec {
     ./lazygit.nix
   ];
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = with pkgs; [
     tree
     wl-clipboard
@@ -42,8 +38,6 @@ rec {
     unzip
   ] ++ (map (p: import p {inherit pkgs;}) myPkgsPaths);
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
     ".bash_completion".text = ''
         COMPAL_AUTO_UNMASK=1
@@ -51,29 +45,7 @@ rec {
     '';
   };
 
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/fcharpentier/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
-    PS1 = ''\[\e[0;36m\][\[\e[1;32m\]bash\[\e[0;32m\]`put_shlvl`\[\e[37;1m\]/\[\e[1;36m\]\u@\h\[\e[37;1m\]:\[\e[1;34m\]\W\[\e[0;34m\]`__git_ps1 "(%s)"`\[\e[0;36m\]]\n\[\e[1;31m\]`put_nonzero_status`\[\e[1;33m\]\$\[\e[m\] '';
-
-    PS1_HOOKS = "play_PS1_sound";
-
-    BEEPFILE = "~/Sounds/beep.wav";
-    BOOPFILE = "~/Sounds/sound_error.wav";
   };
 
   # Let Home Manager install and manage itself.

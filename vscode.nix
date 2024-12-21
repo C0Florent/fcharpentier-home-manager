@@ -78,6 +78,14 @@ in
           ];
         };
       }
+      {
+        key = "ctrl+s";
+        command = "vim.remap";
+        when = "inputFocus && vim.mode == 'Insert'";
+        args = {
+          after = [ "<C-s>" ];
+        };
+      }
     ];
 
     userSettings = {
@@ -125,10 +133,16 @@ in
       "haskell.manageHLS" = "PATH";
       "haskell.serverExecutablePath" = "haskell-language-server-wrapper";
 
+      "terminal.integrated.env.linux" = { SHLVL = 1; BAR = "foo"; };
       "terminal.integrated.profiles.linux" = {
         "bash" = {
           "path" = "~/.bashrc";
           "icon" = "terminal-bash";
+          "env" = {
+            SHLVL = 1;
+            PREV_SHLVL = "$SHLVL";
+            "FOO" = "bar";
+          };
         };
       };
 
@@ -146,6 +160,12 @@ in
             "editor.action.triggerSuggest"
           ];
           when = "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible";
+        }
+      ];
+      "vim.insertModeKeyBindings" = [
+        {
+          before = [ "<C-s>" ];
+          after = [ "<Esc>" ":" "w" "<CR>" ];
         }
       ];
     };

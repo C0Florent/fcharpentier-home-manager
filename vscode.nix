@@ -161,6 +161,14 @@ in
           ];
           when = "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible";
         }
+        {
+          before = ["<C-l>"];
+          commands = [ "workbench.action.increaseViewSize" ];
+        }
+        {
+          before = ["<C-h>"];
+          commands = [ "workbench.action.decreaseViewSize" ];
+        }
       ];
       "vim.insertModeKeyBindings" = [
         {

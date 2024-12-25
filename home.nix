@@ -28,6 +28,7 @@ rec {
     ./eza.nix
     ./bat.nix
     ./lazygit.nix
+    ./delta.nix
   ];
 
   home.packages = with pkgs; [

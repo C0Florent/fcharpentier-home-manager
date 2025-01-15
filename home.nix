@@ -32,11 +32,23 @@ rec {
   ];
 
   home.packages = with pkgs; [
+    # Simple tree directory lister
     tree
+
+    # Wayland clipboard CLI tools
     wl-clipboard
+
+    # Clang compiler and associated tools
     clang
     clang-tools
+
+    # CLI tool to unzip zip archives
     unzip
+
+    # FOSS alternative Epic Games launcher: CLI and GUI
+    legendary-gl
+    rare
+    wineWowPackages.waylandFull
   ] ++ (map (p: import p {inherit pkgs;}) myPkgsPaths);
 
   home.file = {

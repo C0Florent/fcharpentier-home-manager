@@ -36,7 +36,7 @@ in
 
         "$line_break"
 
-        "[ ](fg:${m_prestatus.fg})"
+        "[▕](fg:${m_prestatus.fg})"
         "[ ](bg:${m_prestatus.fg})"
         "$shlvl"
         "$character"

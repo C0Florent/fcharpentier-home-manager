@@ -31,7 +31,7 @@ rec {
     ./delta.nix
   ];
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     # Simple tree directory lister
     tree
 
@@ -49,7 +49,9 @@ rec {
     legendary-gl
     rare
     wineWowPackages.waylandFull
-  ] ++ (map (p: import p {inherit pkgs;}) myPkgsPaths);
+  ]) ++ (with pkgs-latest; [
+    gh
+  ]) ++ (map (p: import p {inherit pkgs;}) myPkgsPaths);
 
   home.file = {
     ".bash_completion".text = ''

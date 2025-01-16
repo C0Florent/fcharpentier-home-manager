@@ -14,7 +14,7 @@ in
     with pkgs.vscode-extensions; [
       vscode-icons-team.vscode-icons
       eamodio.gitlens
-      mhutchie.git-graph
+      extensions.vscode-marketplace.mhutchie.git-graph
       shardulm94.trailing-spaces
 
       github.vscode-github-actions

@@ -1,4 +1,4 @@
-{ lib, username, ... }:
+{ lib, config, ... }:
 
 let 
   style_str = { bg, fg }: "bg:${bg} fg:${fg}";
@@ -61,7 +61,7 @@ in
           "[ ( $user) ]($style)"
           "[ ](fg:${m_username.bg} bg:${m_directory.bg})"
         ];
-        aliases = { "${username}" = ""; };
+        aliases = { "${config.home.username}" = ""; };
       };
       directory = {
         truncation_symbol = "…/";

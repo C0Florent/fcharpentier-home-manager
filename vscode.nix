@@ -1,7 +1,8 @@
-{ pkgs, vscode-extensions, ... }:
+{ pkgs-latest, vscode-extensions, ... }:
 
 let
   extensions = vscode-extensions;
+  pkgs = pkgs-latest;
 in
 {
   programs.vscode = {

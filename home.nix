@@ -22,9 +22,9 @@ rec {
   imports = [
     ./shell/bash.nix
     ./shell/nu.nix
-    (import ./shell/starship.nix {inherit lib; inherit (home) username;})
+    ./shell/starship.nix
     ./alacritty.nix
-    (import ./vscode.nix {pkgs = pkgs-latest; inherit vscode-extensions;})
+    ./vscode.nix
     ./eza.nix
     ./bat.nix
     ./lazygit.nix

@@ -70,7 +70,7 @@
         style = "bold red";
       };
       character = rec {
-        success_symbol = "[\\$](bold yellow)";
+        success_symbol = "[\\$](bright-yellow)";
         error_symbol = success_symbol;
       };
     };

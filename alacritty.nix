@@ -112,7 +112,7 @@
     window = {
       decorations = "Full";
       dynamic_title = true;
-      opacity = 0.99;
+      opacity = 0.95;
       startup_mode = "Windowed";
       resize_increments = true;
       dimensions = {

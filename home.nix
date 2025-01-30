@@ -1,12 +1,5 @@
-{ config, pkgs, lib, pkgs-latest, vscode-extensions, ... }:
+inputs@{ config, pkgs, lib, pkgs-latest, vscode-extensions, ... }:
 
-let
-  myPkgsPaths = [
-    ./shell/ghcl.nix
-    ./shell/gsw.nix
-    ./shell/differ.nix
-  ];
-in
 rec {
   home.username = "fcharpentier";
   home.homeDirectory = "/home/fcharpentier";
@@ -52,7 +45,7 @@ rec {
     wineWowPackages.waylandFull
   ]) ++ (with pkgs-latest; [
     gh
-  ]) ++ (map (p: import p {inherit pkgs;}) myPkgsPaths);
+  ]) ++ (import ./packages.nix inputs);
 
   home.file = {
     ".bash_completion".text = ''

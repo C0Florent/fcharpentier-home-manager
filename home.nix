@@ -23,6 +23,7 @@ rec {
     ./bat.nix
     ./lazygit.nix
     ./delta.nix
+    ./packages.nix
   ];
 
   home.packages = (with pkgs; [
@@ -45,7 +46,7 @@ rec {
     wineWowPackages.waylandFull
   ]) ++ (with pkgs-latest; [
     gh
-  ]) ++ (import ./packages.nix inputs);
+  ]);
 
   home.file = {
     ".bash_completion".text = ''

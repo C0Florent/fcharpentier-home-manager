@@ -24,6 +24,7 @@ rec {
     ./lazygit.nix
     ./delta.nix
     ./packages.nix
+    ./plasma
   ];
 
   home.packages = (with pkgs; [

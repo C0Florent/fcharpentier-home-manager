@@ -18,13 +18,19 @@
       url = "github:nix-community/nix-vscode-extensions";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixpkgs-latest, nix-vscode-extensions, ... }:
+  outputs = { nixpkgs, home-manager, nixpkgs-latest, nix-vscode-extensions, plasma-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -41,7 +47,7 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
-          inherit pkgs-latest vscode-extensions;
+          inherit pkgs-latest vscode-extensions plasma-manager;
           mylib = import ./mylib.nix { inherit (pkgs) lib; };
         };
       };

@@ -45,5 +45,8 @@
           mylib = import ./mylib.nix { inherit (pkgs) lib; };
         };
       };
+    } // pkgs.lib.packagesFromDirectoryRecursive {
+      inherit (pkgs) callPackage;
+      directory = ./packages;
     };
 }

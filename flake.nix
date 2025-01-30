@@ -42,6 +42,7 @@
         # to pass through arguments to home.nix
         extraSpecialArgs = {
           inherit pkgs-latest vscode-extensions;
+          mylib = import ./mylib.nix;
         };
       };
     };

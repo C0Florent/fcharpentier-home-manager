@@ -25,6 +25,7 @@ rec {
     ./delta.nix
     ./packages.nix
     ./plasma
+    ./wezterm.nix
   ];
 
   home.packages = (with pkgs; [

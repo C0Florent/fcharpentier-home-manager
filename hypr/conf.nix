@@ -30,7 +30,7 @@ in
         "$mainMod, ${up},    movefocus, u"
         "$mainMod, ${right}, movefocus, r"
 
-        "$mainMod, T, exec, alacritty"
+        "$mainMod, Q, exec, alacritty"
         "$mainMod, W, exec, firefox"
         "$mainMod, C, killactive"
 
@@ -43,7 +43,7 @@ in
         numlock_by_default = true;
 
         repeat_delay = 180;
-        repeat_rate = 20;
+        repeat_rate = 30;
 
         touchpad = {
         };

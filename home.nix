@@ -19,6 +19,7 @@ rec {
     ./shell/starship.nix
     ./alacritty.nix
     ./vscode.nix
+    ./kitty.nix
     ./eza.nix
     ./bat.nix
     ./lazygit.nix

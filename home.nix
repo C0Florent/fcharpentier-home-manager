@@ -25,6 +25,7 @@ rec {
     ./delta.nix
     ./packages.nix
     ./plasma
+    ./hypr
     ./wezterm.nix
   ];
 

@@ -6,10 +6,8 @@ let
 in
 
 {
-  home.packages = with pkgs; [
-    brightnessctl
-    wireplumber
-    playerctl
+  imports = [
+    ./fn_keys.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -55,21 +53,6 @@ in
         "$mainMod, C, killactive"
 
         "$mainMod + CTRL, X, exec, uwsm stop"
-      ];
-
-      bindel = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-      ];
-      bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
       ];
 
       input = {

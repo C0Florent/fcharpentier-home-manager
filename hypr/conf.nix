@@ -2,6 +2,7 @@
 
 let
   terminal = "${pkgs.alacritty}/bin/alacritty";
+  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   lmb = "mouse:272";
   rmb = "mouse:273";
 in
@@ -36,7 +37,7 @@ in
         "$mainMod, W, exec, firefox"
         "$mainMod, C, killactive"
 
-        "$mainMod + CTRL, X, exit"
+        "$mainMod + CTRL, X, exec, uwsm stop"
       ];
 
       input = {

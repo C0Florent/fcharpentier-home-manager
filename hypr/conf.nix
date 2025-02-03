@@ -2,6 +2,8 @@
 
 let
   terminal = "${pkgs.alacritty}/bin/alacritty";
+  lmb = "mouse:272";
+  rmb = "mouse:273";
 in
 
 {
@@ -9,14 +11,14 @@ in
     settings = {
       "$mainMod" = "SUPER";
 
-      bindm = let
-        # We define the key triggering mouse drag events to
-        # to either left click or left-ALT (for touchpad use)
-        drag = "mouse:272&ALT_L";
-      in [
+      bindm = [
         # Allow actions to be performed with LMB or ALT for touchpad control
-        "$mainMod, ${drag}, movewindow"
-        "$mainMod + CTRL, ${drag}, resizewindow"
+        "$mainMod, ${lmb}, movewindow"
+        "$mainMod, ALT_L,  movewindow"
+
+        "$mainMod + CTRL, ${lmb}, resizewindow"
+        "$mainMod + CTRL, ALT_L,  resizewindow"
+        "$mainMod, ${rmb}, resizewindow"
       ];
 
       bind = let
@@ -34,7 +36,7 @@ in
         "$mainMod, W, exec, firefox"
         "$mainMod, C, killactive"
 
-        "$mainMod + ALT, X, exit"
+        "$mainMod + CTRL, X, exit"
       ];
 
       input = {

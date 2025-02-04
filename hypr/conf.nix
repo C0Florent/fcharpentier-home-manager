@@ -71,6 +71,10 @@ in
         workspace_swipe_min_fingers = true;
         workspace_swipe_distance = 200;
       };
+
+      misc = {
+        disable_hyprland_logo = true;
+      };
     };
   };
 }

@@ -15,7 +15,7 @@
         ", $background"
       ];
 
-      splash = true;
+      splash = false;
     };
   };
 }

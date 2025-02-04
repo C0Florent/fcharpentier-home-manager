@@ -53,6 +53,8 @@ in
         "$mainMod, C, killactive"
 
         "$mainMod + CTRL, X, exec, uwsm stop"
+
+        "$mainMod, Escape, exec, hyprlock"
       ];
 
       input = {

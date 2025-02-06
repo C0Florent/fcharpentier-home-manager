@@ -13,6 +13,7 @@ in
   wayland.windowManager.hyprland = {
     settings = {
       "$mainMod" = "SUPER";
+      "$launchApp" = "uwsm app --";
 
       general = {
         # Hacky hard-coded night owl gradient (cyan-blue-magenta)
@@ -48,8 +49,8 @@ in
         "$mainMod, ${up},    movefocus, u"
         "$mainMod, ${right}, movefocus, r"
 
-        "$mainMod, Q, exec, alacritty"
-        "$mainMod, W, exec, firefox"
+        "$mainMod, Q, exec, $launchApp alacritty"
+        "$mainMod, W, exec, $launchApp firefox"
         "$mainMod, C, killactive"
 
         "$mainMod + CTRL, X, exec, uwsm stop"

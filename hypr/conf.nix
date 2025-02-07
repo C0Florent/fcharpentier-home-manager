@@ -49,6 +49,9 @@ in
         "$mainMod, ${up},    movefocus, u"
         "$mainMod, ${right}, movefocus, r"
 
+        "$mainMod + CTRL, ${left},  movetoworkspace, -1"
+        "$mainMod + CTRL, ${right}, movetoworkspace, +1"
+
         "$mainMod, Q, exec, $launchApp alacritty"
         "$mainMod, W, exec, $launchApp firefox"
         "$mainMod, C, killactive"

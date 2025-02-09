@@ -19,6 +19,9 @@ in
         # Hacky hard-coded night owl gradient (cyan-blue-magenta)
         "col.active_border" = "rgb(7fdbca) rgb(82aaff) rgb(c792ea) 45deg";
 
+        gaps_in = 4;
+        gaps_out = 12;
+
         no_focus_fallback = true;
         resize_on_border = true;
         border_size = 2;

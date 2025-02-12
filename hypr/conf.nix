@@ -71,6 +71,10 @@ in
 
         repeat_delay = 180;
         repeat_rate = 30;
+
+        touchpad = {
+          disable_while_typing = false;
+        };
       };
 
       gestures = {

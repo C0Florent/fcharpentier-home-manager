@@ -91,6 +91,7 @@ in
 
     userSettings = {
       "git.openRepositoryInParentFolders" = "always";
+      "window.menuBarVisibility" = "toggle";
 
       "terminal.integrated.fontFamily" = "MartianMono Nerd Font";
       "terminal.integrated.fontSize" = 12;

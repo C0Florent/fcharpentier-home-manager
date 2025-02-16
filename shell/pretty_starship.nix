@@ -5,6 +5,8 @@ let
   inv_style_str = { bg, fg }: "bg:${fg} fg:${bg}";
 
   # Definition of module colours
+  m_general = { bg = "bright-white"; fg = "black"; };
+  m_shell = { bg = "purple"; fg = "black"; };
   m_username = { bg = "bright-white"; fg = "black"; };
   m_username_root = { bg = m_username.bg; fg = "bold dimmed red"; };
   m_directory = { bg = "blue"; fg = "bold bright-black"; };
@@ -27,7 +29,12 @@ in
       add_newline = true;
 
       format = lib.concatStrings [
+        "[](fg:${m_general.bg} bg:none)"
+        "$os"
+        "$shell"
         "$username"
+        "[ ](fg:prev_bg bg:${m_directory.bg})"
+
         "$directory"
         "$git_branch"
         "$git_status"
@@ -44,7 +51,77 @@ in
         "[ ](fg:prev_bg)"
       ];
 
-     shlvl = {
+      os = {
+        disabled = false;
+        style = style_str m_general;
+        format = "[$symbol]($style)";
+
+        symbols = {
+          # AIX = missing nerd font symbol
+          # Alpaquita = missing nerd font symbol
+          AlmaLinux = " ";
+          Alpine = " ";
+          Amazon = "" ;
+          Android = " ";
+          Arch = "󰣇 ";
+          Artix = " ";
+          # CachyOS = missing nerd font symbol
+          CentOS = "";
+          Debian = " ";
+          # DragonFly = missing nerd font symbol
+          # Emscripten = missing nerd font symbol
+          EndeavourOS = "󰻈 ";
+          Fedora = " ";
+          FreeBSD = "󰣠 ";
+          Garuda = " ";
+          Gentoo = "󰣨 ";
+          # HardenedBSD = missing nerd font symbol
+          Illumos = " ";
+          Kali = " ";
+          Linux = " ";
+          # Mabox = missing nerd font symbol
+          Macos = "󰀵 ";
+          Manjaro = "󱘊 ";
+          # Mariner = missing nerd font symbol
+          # MidnightBSD = missing nerd font symbol
+          Mint = "󰣭 ";
+          # NetBSD = missing nerd font symbol
+          NixOS = "󱄅 ";
+          # Nobara = " "; not supported in starship nixpkgs 24.11
+          OpenBSD = " ";
+          # OpenCloudOS = missing nerd font symbol
+          # openEuler = missing nerd font symbol
+          openSUSE = " ";
+          OracleLinux = " ";
+          Pop = " ";
+          Raspbian = " ";
+          Redhat = "󱄛 ";
+          RedHatEnterprise = "󱄛 ";
+          RockyLinux = " ";
+          # Redox = missing nerd font symbol
+          Solus = " ";
+          SUSE = " ";
+          Ubuntu = " ";
+          # Ultramarine = missing nerd font symbol
+          Unknown = "_ ";
+          # Uos = missing nerd font symbol
+          Void = "  ";
+          Windows = "󰖳 ";
+        };
+      };
+
+      shell = {
+        disabled = false;
+        style = style_str m_general;
+        format = "[˒$indicator]($style)";
+
+        bash_indicator = " ";
+        fish_indicator = " ";
+        nu_indicator = "󰟆 ";
+        zsh_indicator = "󰬡 ";
+      };
+
+      shlvl = {
         disabled = false;
         repeat = true;
         threshold = 1;
@@ -53,13 +130,10 @@ in
         style = style_str m_directory;
       };
       username = {
-        show_always = true;
         style_user = style_str m_username;
         style_root = style_str m_username_root;
         format = lib.concatStrings [
-          "[](fg:${m_username.bg} bg:prev_bg)"
-          "[ ( $user) ]($style)"
-          "[ ](fg:${m_username.bg} bg:${m_directory.bg})"
+          "[˒](${style_str m_general})[($user)]($style)"
         ];
         aliases = { "${config.home.username}" = ""; };
       };

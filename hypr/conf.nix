@@ -9,6 +9,7 @@ in
   imports = [
     ./fn_keys.nix
     ./directions.nix
+    ./workspaces.nix
   ];
 
   wayland.windowManager.hyprland = {

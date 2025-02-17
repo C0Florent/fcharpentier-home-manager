@@ -1,13 +1,15 @@
 { pkgs, lib, ... }:
 
+let
+  left  = "h";
+  down  = "j";
+  up    = "k";
+  right = "l";
+in
+
 {
   wayland.windowManager.hyprland.settings = {
-    bind = let
-      left  = "h";
-      down  = "j";
-      up    = "k";
-      right = "l";
-    in [
+    bind = [
       "$mainMod, ${left},  movefocus, l"
       "$mainMod, ${down},  movefocus, d"
       "$mainMod, ${up},    movefocus, u"
@@ -27,6 +29,13 @@
       "$mainMod + CTRL + SHIFT, ${right}, movetoworkspace, r+1"
       "$mainMod + CTRL + SHIFT, ${up},    movetoworkspace, m-1"
       "$mainMod + CTRL + SHIFT, ${down},  movetoworkspace, m+1"
+    ];
+
+    bindte = [
+      "$mainMod + CTRL + ALT, ${left},  resizeactive, -10   0"
+      "$mainMod + CTRL + ALT, ${right}, resizeactive,  10   0"
+      "$mainMod + CTRL + ALT, ${up},    resizeactive,   0 -10"
+      "$mainMod + CTRL + ALT, ${down},  resizeactive,   0  10"
     ];
   };
 }

@@ -22,13 +22,13 @@ in
 
       "$mainMod + CTRL, ${left},  workspace, m-1"
       "$mainMod + CTRL, ${right}, workspace, m+1"
-      "$mainMod + CTRL, ${up},    workspace, r-1"
-      "$mainMod + CTRL, ${down},  workspace, r+1"
+      "$mainMod + CTRL, ${up},    workspace, r+1"
+      "$mainMod + CTRL, ${down},  workspace, r-1"
 
       "$mainMod + CTRL + SHIFT, ${left},  movetoworkspace, r-1"
       "$mainMod + CTRL + SHIFT, ${right}, movetoworkspace, r+1"
-      "$mainMod + CTRL + SHIFT, ${up},    movetoworkspace, m-1"
-      "$mainMod + CTRL + SHIFT, ${down},  movetoworkspace, m+1"
+      "$mainMod + CTRL + SHIFT, ${up},    movetoworkspace, m+1"
+      "$mainMod + CTRL + SHIFT, ${down},  movetoworkspace, m-1"
     ];
 
     bindte = [

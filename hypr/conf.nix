@@ -8,6 +8,7 @@ in
 {
   imports = [
     ./fn_keys.nix
+    ./directions.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -41,20 +42,7 @@ in
         "$mainMod, ${rmb}, resizewindow"
       ];
 
-      bind = let
-        left  = "h";
-        down  = "j";
-        up    = "k";
-        right = "l";
-      in [
-        "$mainMod, ${left},  movefocus, l"
-        "$mainMod, ${down},  movefocus, d"
-        "$mainMod, ${up},    movefocus, u"
-        "$mainMod, ${right}, movefocus, r"
-
-        "$mainMod + CTRL, ${left},  movetoworkspace, -1"
-        "$mainMod + CTRL, ${right}, movetoworkspace, +1"
-
+      bind = [
         "$mainMod, Q, exec, $launchApp alacritty"
         "$mainMod, W, exec, $launchApp firefox"
         "$mainMod, C, killactive"

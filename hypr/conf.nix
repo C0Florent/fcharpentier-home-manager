@@ -59,7 +59,7 @@ in
         numlock_by_default = true;
 
         repeat_delay = 180;
-        repeat_rate = 30;
+        repeat_rate = 50;
 
         touchpad = {
           disable_while_typing = false;

@@ -47,6 +47,7 @@ in
         "$mainMod, Q, exec, $launchApp alacritty"
         "$mainMod, W, exec, $launchApp firefox"
         "$mainMod, C, killactive"
+        "$mainMod, F, togglefloating"
 
         "$mainMod + CTRL, X, exec, uwsm stop"
 

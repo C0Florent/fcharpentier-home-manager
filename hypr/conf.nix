@@ -32,12 +32,12 @@ in
       };
 
       bindm = [
-        # Allow actions to be performed with LMB or ALT for touchpad control
+        # Allow actions to be performed with LMB or SPACE for touchpad control
         "$mainMod, ${lmb}, movewindow"
-        "$mainMod, ALT_L,  movewindow"
+        "$mainMod, SPACE,  movewindow"
 
-        "$mainMod + CTRL, ${lmb}, resizewindow"
-        "$mainMod + CTRL, ALT_L,  resizewindow"
+        "$mainMod + ALT, ${lmb}, resizewindow"
+        "$mainMod + ALT, SPACE,  resizewindow"
         "$mainMod, ${rmb}, resizewindow"
       ];
 

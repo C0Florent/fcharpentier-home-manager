@@ -32,10 +32,10 @@ in
     ];
 
     bindte = [
-      "$mainMod + CTRL + ALT, ${left},  resizeactive, -10   0"
-      "$mainMod + CTRL + ALT, ${right}, resizeactive,  10   0"
-      "$mainMod + CTRL + ALT, ${up},    resizeactive,   0 -10"
-      "$mainMod + CTRL + ALT, ${down},  resizeactive,   0  10"
+      "$mainMod + ALT, ${left},  resizeactive, -10   0"
+      "$mainMod + ALT, ${right}, resizeactive,  10   0"
+      "$mainMod + ALT, ${up},    resizeactive,   0 -10"
+      "$mainMod + ALT, ${down},  resizeactive,   0  10"
     ];
   };
 }

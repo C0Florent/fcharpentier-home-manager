@@ -34,7 +34,7 @@ in
       tamasfe.even-better-toml
       vadimcn.vscode-lldb
 
-      sdras.night-owl
+      extensions.vscode-marketplace.sdras.night-owl
 
       tomoki1207.pdf
       streetsidesoftware.code-spell-checker

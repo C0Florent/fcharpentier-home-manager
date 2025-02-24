@@ -47,6 +47,7 @@ in
       ms-vscode.live-server
 
       vscodevim.vim
+      usernamehw.errorlens
     ];
 
     keybindings = [

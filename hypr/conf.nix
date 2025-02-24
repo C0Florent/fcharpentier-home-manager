@@ -48,6 +48,7 @@ in
         "$mainMod, W, exec, $launchApp firefox"
         "$mainMod, C, killactive"
         "$mainMod, F, togglefloating"
+        "$mainMod, Tab, workspace, previous"
 
         "$mainMod + CTRL, X, exec, uwsm stop"
 

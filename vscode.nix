@@ -51,12 +51,12 @@ in
 
     keybindings = [
       {
-        key = "ctrl+[Quote]";
+        key = "ctrl+[Backquote]";
         command = "terminal.focus";
         when = null;
       }
       {
-        key = "ctrl+[Backquote]";
+        key = "ctrl+[Quote]";
         command = "workbench.action.navigateBack";
         when = "canNavigateBack";
       }

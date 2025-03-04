@@ -7,6 +7,7 @@
     ./hyprpaper.nix
     ./monitors.nix
     ./animations.nix
+    ./dwindle.nix
   ];
 
   wayland.windowManager.hyprland = {

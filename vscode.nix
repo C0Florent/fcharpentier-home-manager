@@ -150,6 +150,9 @@ in
         };
       };
 
+      "chat.commandCenter.enabled" = false;
+      "workbench.editor.showTabs" = "single";
+
       "vim.smartRelativeLine" = true;
       "vim.normalModeKeyBindings" = [
         {

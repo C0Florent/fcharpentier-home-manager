@@ -31,11 +31,13 @@ in
       "$mainMod + CTRL + SHIFT, ${down},  movetoworkspace, m-1"
     ];
 
-    bindte = [
-      "$mainMod + ALT, ${left},  resizeactive, -10   0"
-      "$mainMod + ALT, ${right}, resizeactive,  10   0"
-      "$mainMod + ALT, ${up},    resizeactive,   0 -10"
-      "$mainMod + ALT, ${down},  resizeactive,   0  10"
+    bindte = let
+      px = builtins.toString 72;
+    in[
+      "$mainMod + ALT, ${left},  resizeactive, -${px} 0"
+      "$mainMod + ALT, ${right}, resizeactive,  ${px} 0"
+      "$mainMod + ALT, ${up},    resizeactive, 0 -${px}"
+      "$mainMod + ALT, ${down},  resizeactive, 0  ${px}"
     ];
   };
 }

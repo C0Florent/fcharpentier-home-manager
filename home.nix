@@ -22,6 +22,7 @@ rec {
     ./kitty.nix
     ./eza.nix
     ./bat.nix
+    ./btop.nix
     ./lazygit.nix
     ./delta.nix
     ./packages.nix

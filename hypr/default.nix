@@ -8,6 +8,7 @@
     ./monitors.nix
     ./animations.nix
     ./dwindle.nix
+    ./cursor.nix
   ];
 
   wayland.windowManager.hyprland = {

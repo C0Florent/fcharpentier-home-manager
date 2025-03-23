@@ -8,11 +8,16 @@ let
 
   # (KEY -> WORKSPACE -> a) -> [a]
   map-workspaces = traverse-workspaces map;
+
+  # (KEY -> WORKSPACE -> [a]) -> [a]
+  concatMap-workspaces = traverse-workspaces builtins.concatMap;
 in
 {
   wayland.windowManager.hyprland.settings = {
-    bind = map-workspaces (key: ws:
+    bind = concatMap-workspaces (key: ws: [
       "$mainMod, ${key}, workspace, ${ws}"
-    );
+      "$mainMod + SHIFT + CTRL, ${key}, movetoworkspace, ${ws}"
+      "$mainMod + SHIFT, ${key}, movetoworkspace, ${ws}"
+    ]);
   };
 }

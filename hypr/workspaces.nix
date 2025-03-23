@@ -3,12 +3,15 @@
 let
   workspaces = lib.range 1 12;
 
-  # (KEY -> WORKSPACE -> String) -> [String]
-  for-each-workspace = f: map (w: f "code:${builtins.toString (9 + w)}" "r~${builtins.toString w}") workspaces;
+  # ((a -> b) -> [a] -> c) -> (KEY -> WORKSPACE -> b) -> c
+  traverse-workspaces = mapFunc: f: mapFunc (w: f "code:${builtins.toString (9 + w)}" "r~${builtins.toString w}") workspaces;
+
+  # (KEY -> WORKSPACE -> a) -> [a]
+  map-workspaces = traverse-workspaces map;
 in
 {
   wayland.windowManager.hyprland.settings = {
-    bind = for-each-workspace (key: ws:
+    bind = map-workspaces (key: ws:
       "$mainMod, ${key}, workspace, ${ws}"
     );
   };

@@ -89,8 +89,12 @@ cod()
 		"$CODE_CMD" . || return $?
 	fi
 
+	if [ -z "$TIMEOUT_CLOSE" ]; then
+		local TIMEOUT_CLOSE=1
+	fi
+
 	echo
-	echo "$FUNCNAME: Success, exiting in 1 second..."
-	sleep 1
+	echo "$FUNCNAME: Success, exiting in $TIMEOUT_CLOSE second(s)..."
+	sleep "$TIMEOUT_CLOSE"
 	exit
 }

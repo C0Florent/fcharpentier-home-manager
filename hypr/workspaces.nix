@@ -6,7 +6,11 @@ let
   workspaces = map (id: {
     key = "code:${builtins.toString (9 + id)}";
     ws  = "r~${builtins.toString id}";
-  }) workspaceRange;
+  }) workspaceRange
+  ++ [{
+    key = "Tab";
+    ws  = "previous";
+  }];
 
   # ((a -> b) -> [a] -> c) -> (KEY -> WORKSPACE -> b) -> c
   traverse-workspaces = mapFunc: f: mapFunc (w: f w.key w.ws) workspaces;

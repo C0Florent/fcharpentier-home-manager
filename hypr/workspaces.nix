@@ -1,10 +1,15 @@
 { pkgs, lib, config, ... }:
 
 let
-  workspaces = lib.range 1 12;
+  workspaceRange = lib.range 1 12;
+
+  workspaces = map (id: {
+    key = "code:${builtins.toString (9 + id)}";
+    ws  = "r~${builtins.toString id}";
+  }) workspaceRange;
 
   # ((a -> b) -> [a] -> c) -> (KEY -> WORKSPACE -> b) -> c
-  traverse-workspaces = mapFunc: f: mapFunc (w: f "code:${builtins.toString (9 + w)}" "r~${builtins.toString w}") workspaces;
+  traverse-workspaces = mapFunc: f: mapFunc (w: f w.key w.ws) workspaces;
 
   # (KEY -> WORKSPACE -> a) -> [a]
   map-workspaces = traverse-workspaces map;

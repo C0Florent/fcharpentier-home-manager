@@ -90,7 +90,7 @@ cod()
 	fi
 
 	if [ -z "$TIMEOUT_CLOSE" ]; then
-		local TIMEOUT_CLOSE=1
+		local TIMEOUT_CLOSE=0
 	fi
 
 	echo

@@ -11,8 +11,8 @@
     ];
 
     windowrulev2 = [
-      "animation popin, onworkspace:w[tv1]"
-      "animation popin, floating:1"
+      "animation gnomed, onworkspace:w[tv1]"
+      "animation gnomed, floating:1"
     ];
   };
 }

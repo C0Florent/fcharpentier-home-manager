@@ -17,6 +17,7 @@ rec {
     ./shell/bash.nix
     ./shell/nu.nix
     ./shell/starship.nix
+    ./shell/readline.nix
     ./alacritty.nix
     ./vscode.nix
     ./kitty.nix

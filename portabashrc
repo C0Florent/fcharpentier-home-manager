@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+## PortaBashrc
+# This file is intended to be a minimal, portable "bashrc" which can
+# turn any bash session into a feature-complete shell experience (kind of)
+#
+# It can typically be used by sourcing this file into an active shell session:
+# $ source <(curl -L https://github.com/C0Florent/fcharpentier-home-manager/blob/main/portabashrc?raw=true)
+
+cat <<EOF
+    /====\                              /===\                    /
+   /     /          .     /            /    /                   /      .
+  /=====/  /====\  /==,  /==  /====/  /====|   /====/  /===='  /      /==,  /===
+ /        /     / /     /    /    /  /     /  /    /   \--\   /===/  /     /
+/         \====/ /      \_   \===|  /=====/   \===|  ,====/  /   /  /      \===
+EOF
+
+PS1='\n\[\e[0;36m\][\[\e[1;36m\]\u@\h\[\e[1;37m\]:\[\e[1;34m\]\w\[\e[0;36m\]]\n\[\e[1;32m\](\[\e[1;31m\]$(printf "%.i" $?)\[\e[1;32m\])\[\e[0m\]\$ '
+
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias l='ls -alh'
+
+alias gs='git status'
+alias gd='git diff'
+alias gc='git commit'
+alias ga='git add'
+alias gb='git branch'

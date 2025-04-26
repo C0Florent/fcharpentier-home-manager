@@ -3,7 +3,8 @@
 {
   wayland.windowManager.hyprland.settings = {
     animation = [
-      "windows, 1, 3.5, easeOutBack, slide"
+      "windows,    1, 3.5, easeOutBack, slide"
+      "windowsOut, 1, 5,   easeOutBack, slide"
     ];
 
     bezier = [

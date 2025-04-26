@@ -45,6 +45,7 @@ in
 
       bind = [
         "$mainMod, Q, exec, $launchApp alacritty"
+        "$mainMod + SHIFT, Q, exec, [float] $launchApp alacritty"
         "$mainMod, W, exec, $launchApp firefox"
         "$mainMod, C, killactive"
         "$mainMod, F, togglefloating"
